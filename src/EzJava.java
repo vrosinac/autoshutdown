@@ -4,6 +4,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 // Commentaire francois a valider Vincent:
+// 20180704 pour valider le push dans github
 
 public class EzJava
 {
