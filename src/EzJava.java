@@ -5,6 +5,9 @@ import java.util.concurrent.TimeUnit;
 
 // Commentaire francois a valider Vincent:
 // 20180704 pour valider le push dans github
+// examples to set in File/ project properties / Run / Arguments:
+//  oracle:thin:@mancswgtb0012:1521:fbti    TIZONE14   TIZONE14  
+//  db2://C1WC1WC1229:50000/TIPLUS2        TIZONE28   T!Z0N3123 
 
 public class EzJava
 {
