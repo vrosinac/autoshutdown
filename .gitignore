@@ -10,3 +10,9 @@ nbproject/private/config.properties
 nbproject/private/private.properties
 nbproject/private/private.xml
 nbproject/project.xml
+build/classes/.netbeans_update_resources
+dist/lib/db2jcc4.jar
+dist/lib/ojdbc6.jar
+*.cmd~
+*.cmd
+execcmd/query.exe
