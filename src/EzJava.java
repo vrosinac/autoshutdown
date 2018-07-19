@@ -2,6 +2,8 @@ import java.sql.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.io.*;           // added 20180718
+import java.util.*;         // added 20180718
 
 // Commentaire francois a valider Vincent:
 // 20180704 pour valider le push dans github
@@ -195,5 +197,52 @@ public class EzJava
         }
     }
 
+    
+    // listRunningProcesses added 20180718 For further usage. TaskKist analyse
+    /* To use it add this in main:
+        List<String> processes = listRunningProcesses();
+      String result = "";
+
+      // display the result
+      Iterator<String> it = processes.iterator();
+      int i = 0;
+      while (it.hasNext()) {
+         result += it.next() +",";
+         i++;
+         if (i==10) {
+             result += "\n";
+             i = 0;
+         }
+      }
+    */
+     // listRunningProcesses added 20180718 For further usage. TaskKist analyse
+    public static List<String> listRunningProcesses() {
+    List<String> processes = new ArrayList<String>();
+    try {
+      String line;
+      // /FO csv:Use a comma separated FOrmat,   NH:with NoHeader 
+      Process p = Runtime.getRuntime().exec( "tasklist.exe /FO csv /NH" );
+      BufferedReader input = new BufferedReader
+          (new InputStreamReader(p.getInputStream()));
+      while ((line = input.readLine()) != null) {
+          if (!line.trim().equals("")) {
+              // keep only the process name
+              line = line.substring(1);
+              processes.add(line.substring(0, line.indexOf("")));
+          }
+      }
+      input.close();
+    }
+    catch (Exception err) {
+      err.printStackTrace();
+    }
+    return processes;
+  }
+
 }    // End EzJava
 // END OF FILE
+/*
+    
+
+
+*/
